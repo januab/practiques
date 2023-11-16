@@ -23,21 +23,22 @@ enDesenvolupament(){
 opcioNoValida(){
 	clear
 	echo "Opció no vàlida."
-	sleep 2
+	sleep 1
 	mostrar_menu_principal
 }
 fitxer_bbdd=$1
 
 mostrar_menu_principal
 
-opcio=9
-while [ $opcio -ne 0 ]
+opcio=1
+while [[ "$opcio" =~ ^[0-4] ]]
 do
 	read opcio
 	case $opcio in
 		0)
 			clear
 			echo "Moltes gràcies per visitar HBBQO. Fins la propera."
+			exit
 			;;
 		1)
 			enDesenvolupament
@@ -54,7 +55,7 @@ do
 
 		*)
 			opcioNoValida
-			read opcio
+			let opcio=1
 			;;
 	esac
 done
