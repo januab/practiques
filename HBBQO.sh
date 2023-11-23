@@ -74,7 +74,14 @@ opcio1(){
 	done
 }
 
-
+mostra_rating_levels(){
+	clear
+	echo "Els Rating Levels existents són:"
+	echo ""
+	tail +2 $fitxer_bbdd | cut -d, -f2 | sort -t, -k1 | uniq | grep -v '^[[:blank:]]*$'
+	echo ""
+	echo "Escull-ne un:"
+}
 opcio2(){
 	opcio1=1
 	while [[ "$opcio1" =~ ^[0-3] ]]
@@ -104,7 +111,11 @@ opcio2(){
 				bash Tasca2-2.sh $fitxer_bbdd $cadena $any
 				;;
 			3)
-				enDesenvolupament
+				mostra_rating_levels
+				read rating
+				echo "Introdueix una cadena de caràcters:"
+				read cadena
+				bash Tasca2-3.sh $fitxer_bbdd $rating $cadena
 				;;
 
 			*)

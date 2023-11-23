@@ -10,7 +10,7 @@ nova_cerca="si"
 
 while [ $nova_cerca == "si" ]
 do
-	grep ^[^,]*$cadena[^,]*,$ratinglevel $f_entrada | sort -t , -k1 > pelis_ordenades_tmp.csv
+	grep ^[^,]*$cadena[^,]*,$ratinglevel, $f_entrada | sort -t , -k1 > pelis_ordenades_tmp.csv
 
 	num_linies=`wc -l < pelis_ordenades_tmp.csv`
 
