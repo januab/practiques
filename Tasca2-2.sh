@@ -3,16 +3,13 @@
 num_pelis_pagina=7
 
 f_entrada=$1
+cadena=$2
+any=$3
+
 nova_cerca="si"
 
 while [ $nova_cerca == "si" ]
 do
-	clear
-	echo "Introdueix una cadena de caràcters:"
-	read cadena
-	echo "Introdueix un any:"
-	read any
-
 	grep ^[^,]*$cadena[^,]*,[^,]*,[^,]*,$any $f_entrada | sort -t , -k1 > pelis_ordenades_tmp.csv
 
 	num_linies=`wc -l < pelis_ordenades_tmp.csv`
@@ -57,6 +54,13 @@ do
 	echo "";
 	echo "Vols fer una altra cerca? [si/no]:"
 	read nova_cerca
+	if [ $nova_cerca == si ];then
+		clear
+		echo "Introdueix una cadena de caràcters:"
+		read cadena
+		echo "Introdueix un any:"
+		read any
+	fi
 done
 
 rm pelis_ordenades_tmp.csv
