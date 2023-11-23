@@ -10,6 +10,8 @@ num_linies=`wc -l < $f_entrada`
 grep ^[${lletra1^^}-${lletra2^^}] $f_entrada | sort -t , -k1 > pelis_ordenades_tmp.csv
 clear
 
+num_linies=`wc -l < pelis_ordenades_tmp.csv`
+
 for(( i=1; i<$num_linies; i++ ))
 do
 	linia=`head -$i pelis_ordenades_tmp.csv | tail -1`
@@ -40,10 +42,6 @@ do
 			fi
 		fi	
 	fi
-
-
-
-
 done 
 
 rm pelis_ordenades_tmp.csv
