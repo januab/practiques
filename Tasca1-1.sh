@@ -24,18 +24,18 @@ do
 	
 	let resta=$i%$num_pelis_pagina
 
+
 	if [ $resta -eq 6 ];then
 		echo " ";
 		echo "Prem enter per continuar o s per sortir:"
 		read -n1 var
 		clear
-		if [ $var == "s" ];then
-			break
-		fi	
+		if [ ${#var} -gt 0 ];then
+			if [ $var == "s" ];then
+				break
+			fi	
+		fi
 	fi
-	
-	
-	
-	
+
 done 
 rm pelis_ordenades_tmp.csv
