@@ -51,7 +51,7 @@ opcio1(){
 				bash Tasca1-1.sh $fitxer_bbdd
 				;;
 			2)	
-				enDesenvolupament
+				bash Tasca1-2.sh $fitxer_bbdd
 				;;
 			3)
 				enDesenvolupament
