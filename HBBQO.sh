@@ -33,9 +33,19 @@ mostra_menu_opcio1(){
 	echo "1-3 Mostrar catàleg per valoració."
 	echo "0 Tornar al menú anterior."
 }
+mostra_menu_opcio2(){
+	clear
+	
+	echo "------------------------------------------"
+	echo "2 - Cerca d’una pel·lícula al catàleg."
+	echo "------------------------------------------"
+	echo "2-1 Cercar pel·lícules per inici del títol."
+	echo "2-2 Cercar pel·lícules per títol i any. "
+	echo "2-3 Cercar pel·lícules per “ratinglevel” i títol."
+	echo "0 Tornar al menú anterior"
 
+}
 opcio1(){
-
 	opcio1=1
 	while [[ "$opcio1" =~ ^[0-3] ]]
 	do
@@ -47,11 +57,51 @@ opcio1(){
 				return
 				;;
 			1)
-				#enDesenvolupament
 				bash Tasca1-1.sh $fitxer_bbdd
 				;;
 			2)	
 				bash Tasca1-2.sh $fitxer_bbdd
+				;;
+			3)
+				enDesenvolupament
+				;;
+
+			*)
+				opcioNoValida
+				let opcio1=1
+				;;
+		esac
+	done
+}
+
+
+opcio2(){
+	opcio1=1
+	while [[ "$opcio1" =~ ^[0-3] ]]
+	do
+
+		mostra_menu_opcio2
+
+		read opcio1
+		case $opcio1 in
+			0)
+				return
+				;;
+			1)
+				clear
+				echo "Introdueix una lletra:"
+				read lletra1
+				echo "Introdueix una altra lletra:"
+				read lletra2
+				bash Tasca2-1.sh $fitxer_bbdd $lletra1 $lletra1
+				;;
+			2)	
+				clear
+				echo "Introdueix una cadena de caràcters:"
+				read cadena
+				echo "Introdueix un any:"
+				read any
+				bash Tasca2-2.sh $fitxer_bbdd $cadena $any
 				;;
 			3)
 				enDesenvolupament
@@ -81,7 +131,7 @@ do
 			opcio1
 			;;
 		2)
-			enDesenvolupament
+			opcio2
 			;;
 		3)
 			enDesenvolupament
