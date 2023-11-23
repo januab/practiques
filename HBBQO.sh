@@ -40,15 +40,17 @@ opcio1(){
 	while [[ "$opcio1" =~ ^[0-3] ]]
 	do
 		mostra_menu_opcio1
-		read opcio
-		case $opcio in
+
+		read opcio1
+		case $opcio1 in
 			0)
 				return
 				;;
 			1)
-				enDesenvolupament
+				#enDesenvolupament
+				bash Tasca1-1.sh $fitxer_bbdd
 				;;
-			2)
+			2)	
 				enDesenvolupament
 				;;
 			3)
