@@ -38,7 +38,7 @@ mostra_menu_opcio2(){
 	
 	echo "------------------------------------------"
 	echo "2 - Cerca d’una pel·lícula al catàleg."
-	echo "------------------------------------------"
+	echo "---------------------------------------e---"
 	echo "2-1 Cercar pel·lícules per inici del títol."
 	echo "2-2 Cercar pel·lícules per títol i any. "
 	echo "2-3 Cercar pel·lícules per “ratinglevel” i títol."
