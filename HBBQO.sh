@@ -43,7 +43,17 @@ mostra_menu_opcio2(){
 	echo "2-2 Cercar pel·lícules per títol i any. "
 	echo "2-3 Cercar pel·lícules per “ratinglevel” i títol."
 	echo "0 Tornar al menú anterior"
-
+}
+mostra_menu_opcio3(){
+	clear
+	
+	echo "--------------------------------------------------"
+	echo "3 - Joc de preguntes sobre les pel·lícules."
+	echo "--------------------------------------------------"
+	echo "3-1 Completa el títol."
+	echo "3-2 Endevina quan es va fer?"
+	echo "3-3 Quina classificació té?"
+	echo "0 Tornar al menú anterior"
 }
 opcio1(){
 	opcio1=1
@@ -125,6 +135,36 @@ opcio2(){
 		esac
 	done
 }
+
+opcio3(){
+	opcio1=1
+	while [[ "$opcio1" =~ ^[0-3] ]]
+	do
+		mostra_menu_opcio3
+
+		read opcio1
+		case $opcio1 in
+			0)
+				return
+				;;
+			1)
+				enDesenvolupament
+				;;
+			2)	
+				enDesenvolupament
+				;;
+			3)
+				enDesenvolupament
+				;;
+
+			*)
+				opcioNoValida
+				let opcio1=1
+				;;
+		esac
+	done
+}
+
 fitxer_bbdd=$1
 
 opcio=1
@@ -145,7 +185,7 @@ do
 			opcio2
 			;;
 		3)
-			enDesenvolupament
+			opcio3
 			;;
 		4)
 			enDesenvolupament
